@@ -15,7 +15,7 @@ jobs:
 
 
       - name: push changes to remote
-      - run: |
+        run: |
           git config --global user.name "test"
           git config --global user.email "test@test.com"
 
