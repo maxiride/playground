@@ -1,16 +1,24 @@
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v2
+on:
+  push:
+    branches:
+      - main
 
-  - name: Dump context
-    run: echo ${{github}} > dump.txt
-  
+jobs:
+  job_id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  - name: push changes to remote
-  run: |
-    git config --global user.name "test"
-    git config --global user.email "test@test.com"
+      - name: Dump context
+        run: echo ${{github}} > dump.txt
 
-    git add . 
-    git commit -m "commit message"
-    git push
+
+      - name: push changes to remote
+      - run: |
+          git config --global user.name "test"
+          git config --global user.email "test@test.com"
+
+          git add . 
+          git commit -m "commit message"
+          git push
