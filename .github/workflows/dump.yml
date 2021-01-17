@@ -1,0 +1,16 @@
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+
+  - name: Dump context
+    run: echo ${{github}} > dump.txt
+  
+
+  - name: push changes to remote
+  run: |
+    git config --global user.name "test"
+    git config --global user.email "test@test.com"
+
+    git add . 
+    git commit -m "commit message"
+    git push
